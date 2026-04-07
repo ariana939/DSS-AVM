@@ -1,17 +1,10 @@
 import { useState } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  Pressable,
-  FlatList,
-  StyleSheet,
-} from 'react-native';
+import {View,Text,TextInput,Pressable,FlatList,StyleSheet} from 'react-native';
 
-type Item = {
-  id: string;
-  name: string;
-  done: boolean;
+type Item = { //Ctipos
+  id: string; //Ctipos
+  name: string; //Ctipos
+  done: boolean; //Ctipos
 };
 
 export default function App() {
