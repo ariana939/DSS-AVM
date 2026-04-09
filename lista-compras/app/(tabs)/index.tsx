@@ -7,6 +7,7 @@ type Item = { //Ctipos
   done: boolean; //Ctipos
 };
 
+//hooks
 export default function App() {
   const [items, setItems] = useState<Item[]>([]);
   const [text, setText] = useState('');
@@ -30,6 +31,8 @@ export default function App() {
   const removeItem = (id: string) => {
     setItems((prev) => prev.filter((it) => it.id !== id));
   };
+
+//
 
   const renderItem = ({ item }: { item: Item }) => (
     <Pressable
