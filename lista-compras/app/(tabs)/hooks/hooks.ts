@@ -5,26 +5,26 @@ export const useListaDeCompras = () => {
   const [items, setItems] = useState<productoParaLista[]>([]);
   const [textoDelInput, setTextoDelInput] = useState('');
 
-  const agregarProducto = () => {
+  const agregaProducto = () => {
     const textoLimpio = textoDelInput.trim();
     if (!textoLimpio) return;
     
     setItems((prev) => [
       ...prev,
-      { id: String(Date.now()), nombre: textoLimpio, finalizado: false },
+      { id: String(Date.now()), nombre: textoLimpio, comprado: false },
     ]);
     setTextoDelInput('');
   };
 
-  const alternarEstadoDelProducto= (id: string) => {
+  const cambiaEstadoDelProducto= (id: string) => {
     setItems((prev) =>
       prev.map((item) => 
-        item.id === id ? { ...item, finalizado: !item.finalizado } : item
+        item.id === id ? { ...item, comprado: !item.comprado } : item
       )
     );
   };
 
-  const eliminarProducto = (id: string) => {
+  const eliminaProducto = (id: string) => {
     setItems((prev) => prev.filter((item) => item.id !== id));
   };
 
@@ -32,8 +32,8 @@ export const useListaDeCompras = () => {
     items,
     textoDelInput,
     setTextoDelInput,
-    agregarProducto,
-    alternarEstadoDelProducto,
-    eliminarProducto,
+    agregaProducto,
+    cambiaEstadoDelProducto,
+    eliminaProducto,
   };
 };

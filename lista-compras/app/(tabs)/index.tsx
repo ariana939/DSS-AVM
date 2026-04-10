@@ -51,9 +51,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🛒 Lista de Compras</Text>
+      <Text style={styles.title}>🛒 Lista de Compras</Text> //
 
-      <View style={styles.inputRow}>
+      <View style={styles.inputRow}>//
         <TextInput
           value={text}
           onChangeText={setText}
@@ -65,14 +65,14 @@ export default function App() {
         <Pressable style={styles.addBtn} onPress={addItem}>
           <Text style={styles.addTxt}>Agregar</Text>
         </Pressable>
-      </View>
+      </View>//
 
       <FlatList
         data={items}
         keyExtractor={(it) => it.id}
         renderItem={renderItem}
         ListEmptyComponent={
-          <Text style={styles.empty}>Sin productos. ¡Agregá el primero! 😊</Text>
+          <Text style={styles.empty}>Sin productos. ¡Agregá el primero! 😊</Text> //
         }
         ItemSeparatorComponent={() => <View style={styles.sep} />}
         contentContainerStyle={{ paddingBottom: 32 }}
@@ -82,44 +82,44 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16, gap: 12, backgroundColor: '#fff' },
-  title: { fontSize: 24, fontWeight: 'bold', marginTop: 12 },
-  inputRow: { flexDirection: 'row', gap: 8 },
-  input: {
+  container: { flex: 1, padding: 16, gap: 12, backgroundColor: 'rgb(255, 255, 255)' },
+  title: { fontSize: 24, fontWeight: 'bold', marginTop: 12 },//
+  inputRow: { flexDirection: 'row', gap: 8 },//
+  input: {//
     flex: 1,
     borderWidth: 1,
     borderColor: '#ddd',
     borderRadius: 8,
     paddingHorizontal: 12,
     height: 44,
-  },
-  addBtn: {
+  },//
+  addBtn: {//
     backgroundColor: '#1e90ff',
     paddingHorizontal: 14,
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  addTxt: { color: '#fff', fontWeight: '600' },
-  row: {
+  },//
+  addTxt: { color: '#fff', fontWeight: '600' },//
+  row: {//
     flexDirection: 'row',
     paddingVertical: 12,
     paddingHorizontal: 8,
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
-  rowText: { fontSize: 16 },
-  done: { textDecorationLine: 'line-through', color: '#999' },
-  pill: {
+  },//
+  rowText: { fontSize: 16 },//
+  done: { textDecorationLine: 'line-through', color: '#999' },//
+  pill: {//
     minWidth: 28,
     height: 28,
     borderRadius: 14,
     textAlign: 'center',
     textAlignVertical: 'center',
     fontWeight: '700',
-  },
-  pillTodo: { backgroundColor: '#eee', color: '#666' },
-  pillDone: { backgroundColor: '#2ecc71', color: '#fff' },
+  },//
+  pillTodo: { backgroundColor: '#eee', color: '#666' },//
+  pillDone: { backgroundColor: '#2ecc71', color: '#fff' },//
   sep: { height: 1, backgroundColor: '#eee' },
-  empty: { textAlign: 'center', color: '#777', marginTop: 24 },
+  empty: { textAlign: 'center', color: '#777', marginTop: 24 },//
 });
