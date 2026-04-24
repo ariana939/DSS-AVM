@@ -1,20 +1,22 @@
 import { Pressable, Text, View, StyleSheet } from 'react-native';
 import type { productoParaLista } from '../../tipos/tipos';
 
-type Props = {
-  item: productoParaLista;
+export default function TarjetaParaProductoDeCompra ({
+  producto,
+  presionado,
+  presionadoLargo
+}: {
+  producto: productoParaLista;
   presionado: () => void;
   presionadoLargo: () => void;
-};
-
-export default function tarjetaParaProductoDeCompra ({ item, presionado, presionadoLargo }: Props)  {
+}) {
   return (
     <Pressable onPress={presionado} onLongPress={presionadoLargo} style={styles.fila}>
-      <Text style={[styles.textoFila, item.comprado && styles.completado]}>
-        {item.nombre}
+      <Text style={[styles.textoFila, producto.comprado && styles.completado]}>
+        {producto.nombre}
       </Text>
-      <Text style={[styles.pill, item.comprado ? styles.cajitaTildada : styles.cajitaConPuntito]}>
-        {item.comprado ? '✔' : '•'}
+      <Text style={[styles.pill, producto.comprado ? styles.cajitaTildada : styles.cajitaConPuntito]}>
+        {producto.comprado ? '✔' : '•'}
       </Text>
     </Pressable>
   );

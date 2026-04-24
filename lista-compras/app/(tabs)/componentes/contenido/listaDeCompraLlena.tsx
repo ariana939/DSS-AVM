@@ -1,33 +1,31 @@
 import { FlatList, View, StyleSheet } from 'react-native';
 import  TarjetaParaProductoDeCompra  from '../contenido/tarjetaParaProductoDeCompra';
-import  listaDeComprasVacia from '../contenido/listaDeComprasVacia';
+import  ListaDeComprasVacia from '../contenido/listaDeComprasVacia';
 import { productoParaLista } from '../../tipos/tipos';
 
-type Props = {
-  producto: productoParaLista[];
-  alPresionarSobreUnItem: (id: string) => void;
-  alMantenerPresionSobreUnItem: (id: string) => void;
-};
 
 export default function ListaDeCompraLlena({
   producto,
-  alPresionarSobreUnItem,
-  alMantenerPresionSobreUnItem,
-}: Props) {
-  const renderizarItem = ({ item }: { item: productoParaLista }) => (
-    <TarjetaParaProductoDeCompra
-      item={item}
-      presionado={() => alPresionarSobreUnItem(item.id)}
-      presionadoLargo={() => alMantenerPresionSobreUnItem(item.id)}
-    />
-  );
+  presionado,
+  presionadoLargo,
+}: {
+  producto: productoParaLista[];
+  presionado: (id: string) => void;
+  presionadoLargo: (id: string) => void;
+}) {
 
   return (
     <FlatList
       data={producto}
       keyExtractor={(item) => item.id}
-      renderItem={renderizarItem}
-      ListEmptyComponent={listaDeComprasVacia}
+      renderItem={({ item }) => (
+        <TarjetaParaProductoDeCompra
+          producto={item}
+          presionado={() => presionado(item.id)}
+          presionadoLargo={() => presionadoLargo(item.id)}
+        />
+      )}
+      ListEmptyComponent={<ListaDeComprasVacia />}
       ItemSeparatorComponent={() => <View style={styles.separador} />}
       contentContainerStyle={{ paddingBottom: 32 }}
     />

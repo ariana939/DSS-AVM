@@ -1,7 +1,7 @@
 import { Text, StyleSheet } from 'react-native';
 
-export default function listaDeComprasVacia(){
-    <Text style={styles.vacia}>Sin productos. ¡Agregá el primero! 😊</Text>
+export default function ListaDeComprasVacia(){
+  return <Text style={styles.vacia}>Sin productos. ¡Agregá el primero! 😊</Text>
 }
 
 const styles = StyleSheet.create({

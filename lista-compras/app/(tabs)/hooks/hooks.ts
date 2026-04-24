@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { productoParaLista } from '../tipos/tipos';
 
-export const useListaDeCompras = () => {
+export default function UsarListaDeCompras (){
   const [items, setItems] = useState<productoParaLista[]>([]);
   const [textoDelInput, setTextoDelInput] = useState('');
 

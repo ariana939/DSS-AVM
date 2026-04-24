@@ -1,12 +1,14 @@
-import { TextInput, Pressable, View, StyleSheet } from 'react-native';
+import { TextInput, Pressable, View, StyleSheet, Text } from 'react-native';
 
-type Props = {
+export default function FormularioParaAgregarProducto({
+  nuevoProducto,
+  cambiaTexto,
+  alEnviar,
+}: {
   nuevoProducto: string;
   cambiaTexto: (text: string) => void;
-  onSubmitEditing: () => void;
-};
-
-export default function formularioParaAgregarProducto({nuevoProducto,cambiaTexto,onSubmitEditing,}: Props) {
+  alEnviar: () => void;
+}) {
   return (
     <View style={styles.filaInput}>
       <TextInput
@@ -15,15 +17,14 @@ export default function formularioParaAgregarProducto({nuevoProducto,cambiaTexto
         placeholder="Agregar producto (ej: Leche)"
         style={styles.input}
         returnKeyType="done"
-        onSubmitEditing={onSubmitEditing}
+        onSubmitEditing={alEnviar}
       />
-      <Pressable style={styles.botonAgrega} onPress={onSubmitEditing}>
+      <Pressable style={styles.botonAgrega} onPress={alEnviar}>
         <Text style={styles.textBoton}>Agregar</Text>
       </Pressable>
     </View>  
   );
 }
-
 const styles = StyleSheet.create({
   filaInput: { flexDirection: 'row', gap: 8 },
   input: {
