@@ -15,6 +15,7 @@ export default function FormularioParaAgregarProducto({
         value={nuevoProducto}
         onChangeText={cambiaTexto}
         placeholder="Agregar producto (ej: Leche)"
+        placeholderTextColor="#9a9595"
         style={styles.input}
         returnKeyType="done"
         onSubmitEditing={alEnviar}
@@ -26,7 +27,7 @@ export default function FormularioParaAgregarProducto({
   );
 }
 const styles = StyleSheet.create({
-  filaInput: { flexDirection: 'row', gap: 8 },
+  filaInput: { flexDirection: 'row', gap: 8, marginTop: 10 },
   input: {
     flex: 1,
     borderWidth: 1,
